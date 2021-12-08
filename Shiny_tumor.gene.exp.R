@@ -1,5 +1,10 @@
 library(shiny)
-library(shiny)
+library(dplyr)
+library(ggplot2)
+library(reshape)
+chronic <- read.csv('~/Desktop/shiny/NIK_chronic.csv', row.names = 1)
+tumor <- read.csv('~/Desktop/shiny/NIK_tumor.csv', row.names = 1)
+df.tmp <- tumor
 
 ui <- fluidPage(
   
@@ -23,11 +28,6 @@ ui <- fluidPage(
 )
 
 server <- function(input, output) {
-  # library(breastCancerNKI)
-  chronic <- read.csv('~/Desktop/shiny/NIK_chronic.csv', row.names = 1)
-  tumor <- read.csv('~/Desktop/shiny/NIK_tumor.csv', row.names = 1)
-  library(dplyr)
-  library(ggplot2)
   output$plot <- renderPlot({
     
     gene <- input$thegene

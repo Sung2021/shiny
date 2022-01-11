@@ -4,12 +4,10 @@ library(dplyr)
 
 ui <- fluidPage(
   
-  titlePanel("What's in a Name?"),
-  # CODE BELOW: Add select input named "sex" to choose between "M" and "F"
+  titlePanel("gene expression in tSNE projection"),
   selectInput('dimension', 'Select projection', choices = c("tSNE")),
-  # Add plot output to display top 10 most popular names
+  # select the gene of interest
   selectInput('gene', 'Select gene', choices = rownames(gene.exp)),
-
   plotOutput('plot_dimension')
   
   )
